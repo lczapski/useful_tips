@@ -11,3 +11,9 @@ Find line in file with "Handling endpoint" and "Host". Than extract address for 
 ```bash
 cat file.log | grep 'endpoint' | grep 'Host' | sed -E  's/(.*)Host=(.*)/\2/' | cut -d',' -f1 | sort | uniq -c
 ```
+
+List files except given pattern. Than remove this files. 
+```bash
+ ls | grep -v 2018-02-07 | xargs rm
+
+```
