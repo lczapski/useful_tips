@@ -26,3 +26,8 @@ Print evry 1000000 line start from 1 line.
 ```bash
  sed -n '1p;0~1000000p' big.log 
 ```
+
+Find every mp4 in folder, extract its name and convert it to mp3. 
+```bash
+ls | grep 'mp4' | sed -E 's/.mp4/\n/g' | sed -r '/^\s*$/d' | xargs -I@ bash -c "ffmpeg -i '@.mp4' -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 '@.mp3'"
+```
