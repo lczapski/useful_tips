@@ -36,3 +36,8 @@ Show info on every commit in all branches.
 ```bash
 git rev-list --all --remotes | xargs -I@ bash -c "git show --pretty=format:'#%h %ae (%cD) %s'  --name-status @"
 ```
+
+Base on the example above: show the most updating file in repository. 
+```bash
+git rev-list --all --remotes | xargs -I@ bash -c "git show --pretty=format:''  --name-status @" | sort | uniq -c | sort -r | head -n 10
+```
