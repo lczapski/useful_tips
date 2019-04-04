@@ -31,3 +31,8 @@ Find every mp4 in folder, extract its name and convert it to mp3.
 ```bash
 ls | grep 'mp4' | sed -E 's/.mp4/\n/g' | sed -r '/^\s*$/d' | xargs -I@ bash -c "ffmpeg -i '@.mp4' -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 '@.mp3'"
 ```
+
+Show info on every commit in all branches. 
+```bash
+git rev-list --all --remotes | xargs -I@ bash -c "git show --pretty=format:'#%h %ae (%cD) %s'  --name-only @"
+```
