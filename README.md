@@ -46,3 +46,7 @@ Almost the same but show only the most frequently updating file in current branc
 ```bash
 polpc03742:balance-deducting-service lukasz.czapski$ git log --pretty=format:%H --no-patch | xargs -I@ bash -c "git show --pretty=format:''  --name-status @" | sort | uniq -c | sort -r | head -n 10
 ```
+Search in all branches 
+```bash
+git rev-list --all | xargs git grep -A 4 -B 4 "string/regexp"
+```
