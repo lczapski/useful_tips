@@ -34,5 +34,5 @@ ls | grep 'mp4' | sed -E 's/.mp4/\n/g' | sed -r '/^\s*$/d' | xargs -I@ bash -c "
 
 Show info on every commit in all branches. 
 ```bash
-git rev-list --all --remotes | xargs -I@ bash -c "git show --pretty=format:'#%h %ae (%cD) %s'  --name-only @"
+git rev-list --all --remotes | xargs -I@ bash -c "git show --pretty=format:'#%h %ae (%cD) %s'  --name-status @"
 ```
