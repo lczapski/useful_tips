@@ -56,3 +56,8 @@ Parse and search in json file
 ```bash
 jq '.[] | .fullName + ";" + .knownTechnologies[].name ' workers.json | grep 'Java'
 ```
+
+Kill process listen on port 8080
+```bash
+netstat -vanp tcp | grep -E '8080.*LISTEN' | awk 'END {print $9}' | xargs kill
+```
